@@ -6,7 +6,7 @@ document.getElementById('lyrics-section').style.display = 'none';
 // function to load lyrics of the songs from the search results
 const loadLyrics = (artist, title) =>{
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`) //API for lyrics
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data =>{
         let titleDisplay = unescape(title);
         let artistDisplay = unescape(artist)
@@ -21,7 +21,7 @@ const loadLyrics = (artist, title) =>{
 //loading the list of artist and songs
 const loadArtistAndSong = (song) => {
     fetch(`https://api.lyrics.ovh/suggest/${song}`) //retrieving song and artist name
-    .then(response => response.json())
+    .then(res => res.json())
     .then(info => {
         const displayResult = document.getElementById('display-result');
         displayResult.innerHTML = '';
